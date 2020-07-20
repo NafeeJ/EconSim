@@ -17,6 +17,15 @@ def background():
     berries = 0
     c1 = Civ(wood)
     c2 = Civ(berries)
+    while True:
+        c1.produce
+        c2.produce
+
+        print(c1.item)
+        print(c2.item)
+
+        time.sleep(3)
+
 
 
 
@@ -26,7 +35,7 @@ def main():
     """wood = 0
     berries = 0
     c1 = Civ(wood)
-    c2 = Civ(berries)"""
+    c2 = Civ(berries)
 
     try:
         while True:
@@ -38,14 +47,20 @@ def main():
 
             time.sleep(3)
     except KeyboardInterrupt: #press CTRL+C
-        pass
+        pass"""
 
-
-"""        c1.produce
+    """
+        c1.produce
         c2.produce
 
         print(c1.item)
-        print(c2.item)"""
+        print(c2.item)
+    """
+    b = threading.Thread(name="background", target=background)
+
+    b.start()
+
+    time.sleep(6)
 
 if __name__ == '__main__':
     main()
