@@ -1,0 +1,2 @@
+# EconSim
+Small economics simulator
