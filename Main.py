@@ -11,7 +11,8 @@ class Civ:
 
     def produce(self, productionOutput, productionInterval):
         self.numOfGoods += productionOutput
-        print("Number of " + self.nameOfGoods + ": " , self.numOfGoods)
+        print(f"Number of {self.nameOfGoods}: {self.numOfGoods}")
+        #print("Number of " + self.nameOfGoods + ": ",self.numOfGoods)
         time.sleep(productionInterval)
 
 
@@ -22,11 +23,14 @@ def main():
     c1 = Civ(wood, "wood")
     c2 = Civ(berries, "berries")
 
+    output1 = int(input(f"Enter production output for {c1.nameOfGoods}: "))
+    output2 = int(input(f"Enter production output for {c2.nameOfGoods}: "))
+
     try:
         while True:
 
-            c1Thread = threading.Thread(target=c1.produce(1, 2), args=(1, 2))
-            c2Thread = threading.Thread(target=c2.produce(2, 3), args=(2, 3))
+            c1Thread = threading.Thread(target=c1.produce(output1, 2), args=(output1, 2))
+            c2Thread = threading.Thread(target=c2.produce(output2, 3), args=(output2, 3))
 
             c1Thread.start()
             c2Thread.start()
